@@ -15,16 +15,20 @@
 
   tessel = require('tessel');
 
+  require('./cylon-tessel');
+
   namespace = require('node-namespace');
 
-  namespace("Cylon.Adaptor", function() {
+  namespace('Cylon.Adaptors', function() {
     return this.Tessel = (function(_super) {
       __extends(Tessel, _super);
 
       function Tessel(opts) {
+        if (opts == null) {
+          opts = {};
+        }
         Tessel.__super__.constructor.apply(this, arguments);
-        this.connection = opts.connection;
-        this.name = opts.name;
+        this.tessel = "";
         this.myself = this;
       }
 
@@ -54,9 +58,7 @@
 
       return Tessel;
 
-    })(Cylon.Basestar);
+    })(Cylon.Adaptor);
   });
-
-  module.exports = Cylon.Adaptor.Tessel;
 
 }).call(this);
