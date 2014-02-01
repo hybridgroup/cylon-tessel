@@ -11,25 +11,18 @@
 namespace = require 'node-namespace'
 
 require 'cylon'
+require './tessel'
+
+GPIO = require "cylon-gpio"
 
 module.exports =
   adaptor: (args...) ->
-    # Provide a function that's an instance of your adaptor here. For example,
-    # the Sphero adaptor creates a new instance of the Sphero adaptor class:
-    #
-    # new Cylon.Adaptor.Sphero(args...)
-    return ->
+    new Cylon.Adaptors.Tessel(args...)
 
   driver: (args...) ->
-    # Provide a function that's an instance of your driver here. For example,
-    # the Sphero adaptor creates a new instance of the Sphero driver class:
-    #
-    # new Cylon.Driver.Sphero(args...)
-    return ->
+    GPIO.driver(args...)
 
   register: (robot) ->
-    # Bootstrap your adaptor here. For example, with a Sphero, you would call
-    # the registerAdaptor and registerDriver functions as follows:
-    #
-    # robot.registerAdaptor 'cylon-sphero', 'sphero'
-    # robot.registerDriver 'cylon-sphero', 'sphero'
+    robot.registerAdaptor 'cylon-tessel', 'tessel'
+
+    GPIO.register robot

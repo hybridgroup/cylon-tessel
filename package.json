@@ -4,20 +4,20 @@
   "main": "dist/cylon-tessel.js",
   "description": "Cylon module for Tessel",
   "homepage": "http://cylonjs.com",
-  "bugs": "Your bug report URL here",
+  "bugs": "https://github.com/hybridgroup/cylon-tessel/issues",
   "author": {
-    "name": "Your Name Here",
-    "email": "Your Email Here",
-    "url": "Your URL here"
+    "name": "The Hybridg Group",
+    "email": "",
+    "url": "http://hybridgroup.com"
   },
   "repository": {
     "type": "git",
-    "url": "your git URL here"
+    "url": "https://github.com/hybridgroup/cylon-tessel"
   },
   "licenses": [
-    {
-      "type": "your license type here"
-    }
+  {
+    "type": "Apache 2.0"
+  }
   ],
   "devDependencies": {
     "matchdep": "~0.1.1",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": "~0.7.0",
-		"cylon-gpio": "~0.6.0"
+    "cylon": ">=0.9.2",
+    "cylon-gpio": ">=0.8.0"
   }
 }

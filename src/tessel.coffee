@@ -9,14 +9,14 @@
 'use strict';
 
 tessel = require 'tessel'
+require './cylon-tessel'
 namespace = require 'node-namespace'
 
-namespace "Cylon.Adaptor", ->
-  class @Tessel extends Cylon.Basestar
-    constructor: (opts) ->
+namespace 'Cylon.Adaptors', ->
+  class @Tessel extends Cylon.Adaptor
+    constructor: (opts = {}) ->
       super
-      @connection = opts.connection
-      @name = opts.name
+      @tessel= ""
       @myself = this
 
     commands: ->
@@ -35,5 +35,3 @@ namespace "Cylon.Adaptor", ->
         p.high()
       else
         p.low()
-				
-module.exports = Cylon.Adaptor.Tessel
