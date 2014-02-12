@@ -22,7 +22,7 @@ namespace 'Cylon.Adaptors', ->
 
     commands: ->
 #      ['digitalWrite', 'analogRead', 'analogWrite', 'i2cRead', 'i2cWrite']
-      ['digitalWrite', 'i2cRead', 'i2cWrite']
+      ['digitalWrite', 'digitalRead', 'i2cRead', 'i2cWrite']
 
     connect: (callback) ->
       Logger.debug "Connecting to Tessel '#{@name}'..."
@@ -42,13 +42,32 @@ namespace 'Cylon.Adaptors', ->
       p = do =>
         if @isLed()
           tessel.led(pin).output()
+          tessel.led(pin)
         else
           @tesselPort().gpio(pin).output()
+          @tesselPort().gpio(pin)
 
       if value == 1
         p.high()
       else
         p.low()
+
+    digitalRead: (pin, callback) ->
+      data = null
+      prev_data = null
+      p = do =>
+        if @isLed()
+          tessel.led(pin).input()
+          tessel.led(pin)
+        else
+          @tesselPort().gpio(pin).input()
+          @tesselPort().gpio(pin)
+
+      every 0, =>
+        data = p.read()
+        if data != prev_data
+          prev_data = data
+          (callback)(data)
 
     i2cWrite: (address, cmd, buff, callback = null) ->
       buff = buff ? []
@@ -66,16 +85,6 @@ namespace 'Cylon.Adaptors', ->
         @i2cDevices[address].initialize()
       @i2cDevices[address]
 ###
-    digitalRead: (pin, callback) ->
-      p = do ->
-        if @isLed
-          tessel.led(pin).input()
-        else
-          @tesselPort().gpio(pin).input()
-
-      data = +p.read()
-      (callback)(data)
-
     analogRead: (pin, callback) ->
       (callback)(tesselPort().analog[pin].read())
 

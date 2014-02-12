@@ -33,7 +33,7 @@
       }
 
       Tessel.prototype.commands = function() {
-        return ['digitalWrite', 'i2cRead', 'i2cWrite'];
+        return ['digitalWrite', 'digitalRead', 'i2cRead', 'i2cWrite'];
       };
 
       Tessel.prototype.connect = function(callback) {
@@ -63,9 +63,11 @@
           _this = this;
         p = (function() {
           if (_this.isLed()) {
-            return tessel.led(pin).output();
+            tessel.led(pin).output();
+            return tessel.led(pin);
           } else {
-            return _this.tesselPort().gpio(pin).output();
+            _this.tesselPort().gpio(pin).output();
+            return _this.tesselPort().gpio(pin);
           }
         })();
         if (value === 1) {
@@ -73,6 +75,29 @@
         } else {
           return p.low();
         }
+      };
+
+      Tessel.prototype.digitalRead = function(pin, callback) {
+        var data, p, prev_data,
+          _this = this;
+        data = null;
+        prev_data = null;
+        p = (function() {
+          if (_this.isLed()) {
+            tessel.led(pin).input();
+            return tessel.led(pin);
+          } else {
+            _this.tesselPort().gpio(pin).input();
+            return _this.tesselPort().gpio(pin);
+          }
+        })();
+        return every(0, function() {
+          data = p.read();
+          if (data !== prev_data) {
+            prev_data = data;
+            return callback(data);
+          }
+        });
       };
 
       Tessel.prototype.i2cWrite = function(address, cmd, buff, callback) {
@@ -108,16 +133,6 @@
   });
 
   /*
-      digitalRead: (pin, callback) ->
-        p = do ->
-          if @isLed
-            tessel.led(pin).input()
-          else
-            @tesselPort().gpio(pin).input()
-  
-        data = +p.read()
-        (callback)(data)
-  
       analogRead: (pin, callback) ->
         (callback)(tesselPort().analog[pin].read())
   
