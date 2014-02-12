@@ -9,7 +9,7 @@
 
 (function() {
   'use strict';
-  var GPIO, namespace,
+  var GPIO, I2C, namespace,
     __slice = [].slice;
 
   namespace = require('node-namespace');
@@ -19,6 +19,8 @@
   require('./tessel');
 
   GPIO = require("cylon-gpio");
+
+  I2C = require("cylon-i2c");
 
   module.exports = {
     adaptor: function() {
@@ -33,10 +35,11 @@
     driver: function() {
       var args;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      return GPIO.driver.apply(GPIO, args);
+      return GPIO.driver.apply(GPIO, args) || I2C.driver.apply(I2C, args);
     },
     register: function(robot) {
       robot.registerAdaptor('cylon-tessel', 'tessel');
+      I2C.register(robot);
       return GPIO.register(robot);
     }
   };

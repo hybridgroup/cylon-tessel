@@ -1,7 +1,7 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel'},
+  connection: { name: 'tessel', adaptor: 'tessel', port: "LED"},
   device: {name: 'led', driver: 'led', pin: 2},
 
   work: function(my) {
