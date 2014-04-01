@@ -1,7 +1,7 @@
 {
   "name": "cylon-tessel",
-  "version": "0.1.0",
-  "main": "dist/cylon-tessel.js",
+  "version": "0.0.1",
+  "main": "lib/cylon-tessel.js",
   "description": "Cylon module for Tessel",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-tessel/issues",
@@ -26,20 +26,16 @@
     "node-namespace": true
   },
   "devDependencies": {
-    "matchdep": "~0.1.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-watch": "~0.5.0",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-simple-mocha": "~0.4.0",
-    "grunt-contrib-clean": "~0.5.0",
     "sinon-chai": "~2.4.0",
     "chai": "~1.7.2",
     "mocha": "~1.12.1",
-    "sinon": "~1.7.3"
+    "sinon": "~1.7.3",
+    "jshint": "~2.4.4"
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": ">=0.9.2",
-    "cylon-gpio": ">=0.8.0"
+    "cylon": ">=0.11.0",
+    "cylon-gpio": ">=0.10.0",
+    "cylon-i2c": ">=0.8.0"
   }
 }
