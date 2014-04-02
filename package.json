@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": ">=0.11.0",
-    "cylon-gpio": ">=0.10.0",
-    "cylon-i2c": ">=0.8.0"
+    "cylon": ">=0.13.0",
+    "cylon-gpio": ">=0.13.0",
+    "cylon-i2c": ">=0.10.0"
   }
 }
