@@ -22,7 +22,7 @@
   "hardware": {
     "*": false,
     "./": false,
-    "./dist": true,
+    "./lib": true,
     "node-namespace": true
   },
   "devDependencies": {
