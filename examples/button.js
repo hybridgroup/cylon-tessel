@@ -2,8 +2,8 @@ var Cylon = require('cylon');
 
 Cylon.robot({
   connections: [
-    { name: 'tessel_led', adaptor: 'tessel', port: 'LED'},
-    { name: 'tessel_gpio', adaptor: 'tessel', port: 'GPIO'}
+    { name: 'tessel_led', adaptor: 'tessel', port: 'LED' },
+    { name: 'tessel_gpio', adaptor: 'tessel', port: 'GPIO' }
   ],
 
   devices: [
