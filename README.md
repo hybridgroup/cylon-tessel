@@ -65,6 +65,8 @@ Thank you!
 
 ## Release History
 
+Version 0.1.0 - Compatibility with Cylon 0.14.0, remove node-namespace.
+
 Version 0.0.1 - Initial release
 
 ## License
