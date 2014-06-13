@@ -65,6 +65,8 @@ Thank you!
 
 ## Release History
 
+Version 0.2.1 - Add peerDependencies to package.json
+
 Version 0.2.0 - Compatibility with Cylon 0.15.0
 
 Version 0.1.0 - Compatibility with Cylon 0.14.0, remove node-namespace.
