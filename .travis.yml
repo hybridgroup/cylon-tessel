@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - '0.10'
+script: 
+  - npm install
+  - curl -sS https://tessel.io/install.sh | sh
+  - npm link tessel
+  - make
