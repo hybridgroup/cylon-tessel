@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update
 
 install:
-  - sudo apt-get install libusb-dev
+  - sudo apt-get install -qq libusb-1.0-0-dev
   - npm install
   - curl -sS https://tessel.io/install.sh | sh
   - npm link tessel
