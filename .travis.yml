@@ -1,6 +1,12 @@
 language: node_js
+
 node_js:
   - '0.10'
+
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq libusb-1.0-0-dev
+
 script: 
   - npm install
   - curl -sS https://tessel.io/install.sh | sh
