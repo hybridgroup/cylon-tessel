@@ -7,8 +7,8 @@ Cylon.robot({
   ],
 
   devices: [
-    { name: 'led', driver: 'led', pin: 1, connection: 'tessel_led' },
-    { name: 'button', driver: 'button', pin: 3, connection: 'tessel_gpio' }
+    { name: 'led', driver: 'led', pin:  1, connection: 'tessel_led' },
+    { name: 'button', driver: 'button', pin: 'G3', connection: 'tessel_gpio' }
   ],
 
   work: function(my) {
