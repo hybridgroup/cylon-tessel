@@ -21,7 +21,8 @@
     "./lib": true,
     "accel-mma84": true,
     "ambient-attx4": true,
-    "camera-vc0706": true
+    "camera-vc0706": true,
+    "climate-si7005": true
   },
 
   "devDependencies": {
@@ -44,6 +45,8 @@
     "cylon-i2c":  "~0.12.0",
     "accel-mma84": "~0.2.3",
     "ambient-attx4": "~0.1.4",
-    "camera-vc0706": "~0.1.6"
+    "camera-vc0706": "~0.1.6",
+    "climate-si7005":"0.1.3"
+
   }
 }
