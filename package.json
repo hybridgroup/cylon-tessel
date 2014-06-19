@@ -23,7 +23,8 @@
     "ambient-attx4": true,
     "camera-vc0706": true,
     "climate-si7005": true,
-    "gps-a2235h": true
+    "gps-a2235h": true,
+    "servo-pca9685": true
   },
 
   "devDependencies": {
@@ -48,6 +49,7 @@
     "ambient-attx4": "~0.1.4",
     "camera-vc0706": "~0.1.6",
     "climate-si7005":"~0.1.3",
-    "gps-a2235h":"~0.1.3"
+    "gps-a2235h":"~0.1.3",
+    "servo-pca9685":"~0.1.2"
   }
 }
