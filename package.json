@@ -16,16 +16,17 @@
   "license": "Apache 2.0",
 
   "hardware": {
-    "*": false,
-    "./": false,
-    "./lib": true,
-    "accel-mma84": true,
-    "ambient-attx4": true,
-    "camera-vc0706": true,
+    "*":              false,
+    "./":             false,
+    "./lib":          true,
+    "accel-mma84":    true,
+    "ambient-attx4":  true,
+    "camera-vc0706":  true,
     "climate-si7005": true,
-    "gps-a2235h": true,
-    "servo-pca9685": true,
-    "audio-vs1053b": true
+    "gps-a2235h":     true,
+    "servo-pca9685":  true,
+    "audio-vs1053b":  true,
+    "relay-mono":     true
   },
 
   "devDependencies": {
@@ -43,15 +44,16 @@
   },
 
   "dependencies": {
-    "cylon":      "~0.15.1",
-    "cylon-gpio": "~0.15.0",
-    "cylon-i2c":  "~0.12.0",
-    "accel-mma84": "~0.2.3",
-    "ambient-attx4": "~0.1.4",
-    "camera-vc0706": "~0.1.6",
-    "climate-si7005":"~0.1.3",
-    "gps-a2235h":"~0.1.3",
-    "servo-pca9685":"~0.1.2",
-    "audio-vs1053b":"0.1.6"
+    "cylon":          "~0.15.1",
+    "cylon-gpio":     "~0.15.0",
+    "cylon-i2c":      "~0.12.0",
+    "accel-mma84":    "~0.2.3",
+    "ambient-attx4":  "~0.1.4",
+    "camera-vc0706":  "~0.1.6",
+    "climate-si7005": "~0.1.3",
+    "gps-a2235h":     "~0.1.3",
+    "servo-pca9685":  "~0.1.2",
+    "audio-vs1053b":  "~0.1.6",
+    "relay-mono":     "~0.1.2"
   }
 }
