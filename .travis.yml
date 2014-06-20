@@ -3,9 +3,13 @@ language: node_js
 node_js:
   - '0.10'
 
+before_install:
+ - sudo apt-get update
+
 install:
-  - curl -sS https://tessel.io/install.sh | sh
+  - sudo apt-get install libusb-1.0-0-dev
   - npm install
+  - npm install -g tessel
   - npm link tessel
 
 script:
