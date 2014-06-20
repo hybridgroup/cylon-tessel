@@ -1,6 +1,6 @@
 {
   "name": "cylon-tessel",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "lib/cylon-tessel.js",
   "description": "Cylon module for Tessel",
   "homepage": "http://cylonjs.com",
