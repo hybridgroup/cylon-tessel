@@ -24,7 +24,7 @@ $ sudo npm install -g cylon-cli
 $ cylon generate tessel my-tessel-project
 $ cd my-tessel-project
 $ npm install
-$ tessel push blink.js
+$ tessel run blink.js
 ```
 
 If the blue light starts to blink, then you're all set!
