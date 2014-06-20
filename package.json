@@ -27,7 +27,8 @@
     "servo-pca9685":  true,
     "audio-vs1053b":  true,
     "relay-mono":     true,
-    "ir-attx4":       true
+    "ir-attx4":       true,
+    "ble-ble113a":    true
   },
 
   "devDependencies": {
@@ -56,6 +57,7 @@
     "servo-pca9685":  "~0.1.2",
     "audio-vs1053b":  "~0.1.6",
     "relay-mono":     "~0.1.2",
-    "ir-attx4":       "~0.1.2"
+    "ir-attx4":       "~0.1.2",
+    "ble-ble113a":    "~0.1.6"
   }
 }
