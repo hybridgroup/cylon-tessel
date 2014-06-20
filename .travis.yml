@@ -1,13 +1,10 @@
-language: node_js
-
-node_js:
-  - '0.10'
+language: objective-c
 
 before_install:
- - sudo apt-get update
+  - brew install libusb node
+  - npm install -g node-gyp
 
 install:
-  - sudo apt-get install libusb-1.0-0-dev
   - npm install
   - npm install -g tessel
   - npm link tessel
