@@ -1,0 +1,12 @@
+language: objective-c
+
+before_install:
+  - brew install libusb node
+
+install:
+  - npm install
+  - npm install -g tessel
+  - npm link tessel
+
+script:
+  - make

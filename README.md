@@ -3,7 +3,7 @@
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and
 physical computing using Node.js
 
-This repository contains the Cylon adaptor for the [Tessel](https://tessel.io/).
+This repository contains the Cylon adaptor for the [Tessel](https://tessel.io/) JavaScript microcontroller.
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
@@ -24,25 +24,87 @@ $ sudo npm install -g cylon-cli
 $ cylon generate tessel my-tessel-project
 $ cd my-tessel-project
 $ npm install
-$ tessel push blink.js
+$ tessel run blink.js
 ```
 
 If the blue light starts to blink, then you're all set!
 
 ## Examples
 
+### LED
+
 ```javascript
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'LED' },
-  device: { name: 'led', driver: 'led', pin: 2 },
+  connection: { name: 'tessel', adaptor: 'tessel' },
+  device: { name: 'led', driver: 'led', pin: 1 },
 
   work: function(my) {
-    every((1).seconds(), my.led.toggle);
+    every((1).seconds(), function() { my.led.toggle() });
   }
 }).start();
 ```
+
+### Climate
+
+```javascript
+var Cylon = require('cylon');
+
+Cylon.robot({
+  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
+  device: { name: 'climate', driver: 'climate-si7005' },
+  work: function(my) {
+    my.climate.on('error', function (err) {
+      console.log(err)
+    });
+
+    every((1).seconds(), function() {
+      my.climate.readHumidity(function (err, humid) {
+        console.log('Humidity:', humid.toFixed(4) + '%RH');
+      });
+      my.climate.readTemperature('f', function (err, temp) {
+        console.log('Degrees:', temp.toFixed(4) + 'F');
+      });
+    });
+  }
+}).start();
+```
+
+## Tessel Module Support
+
+The Tessel has a variety of custom hardware modules specifically for use with Tessel. Cylon.js has support for the following Tessel modules:
+
+- [Accelerometer](https://tessel.io/modules#module-accelerometer)
+- [Ambient Light + Sound](https://tessel.io/modules#module-ambient)
+- [Audio](https://tessel.io/modules#module-audio)
+- [Bluetooth Low Energy](https://tessel.io/modules#module-ble)
+- [Camera](https://tessel.io/modules#module-camera)
+- [Climate](https://tessel.io/modules#module-climate)
+- [GPS](https://tessel.io/modules#module-gps)
+- [Infrared](https://tessel.io/modules#module-infrared)
+- [Relay](https://tessel.io/modules#module-relay)
+- [Servo](https://tessel.io/modules#module-servo)
+
+## GPIO & I2C Support
+
+In addition to the custom Tessel modules, you can also use the standard Cylon.js GPIO and I2C drivers:
+
+  - [GPIO](https://en.wikipedia.org/wiki/General_Purpose_Input/Output) <=> [Drivers](https://github.com/hybridgroup/cylon-gpio)
+    - Analog Sensor
+    - Button
+    - IR Rangefinder
+    - LED
+    - MakeyButton
+    - Maxbotix Ultrasonic Range Finder
+
+  - [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) <=> [Drivers](https://github.com/hybridgroup/cylon-i2c)
+    - BlinkM
+    - BMP180
+    - HMC6352 Digital Compass
+    - LCD
+    - MPL115A2 Barometer/Thermometer
+    - MPU6050
 
 ## Documentation
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
