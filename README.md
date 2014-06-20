@@ -75,17 +75,16 @@ Cylon.robot({
 
 The Tessel has a variety of custom hardware modules specifically for use with Tessel. Cylon.js has support for the following Tessel modules:
 
-  - [Tessel Modules](https://tessel.io/modules)
-		- [Accelerometer](https://tessel.io/modules#module-accelerometer)
-		- [Ambient Light + Sound](https://tessel.io/modules#module-ambient)
-		- [Audio](https://tessel.io/modules#module-audio)
-		- [Bluetooth Low Energy](https://tessel.io/modules#module-ble)
-		- [Camera](https://tessel.io/modules#module-camera)
-		- [Climate](https://tessel.io/modules#module-climate)
-		- [GPS](https://tessel.io/modules#module-gps)
-		- [Infrared](https://tessel.io/modules#module-infrared)
-		- [Relay](https://tessel.io/modules#module-relay)
-		- [Servo](https://tessel.io/modules#module-servo)
+	- [Accelerometer](https://tessel.io/modules#module-accelerometer)
+	- [Ambient Light + Sound](https://tessel.io/modules#module-ambient)
+	- [Audio](https://tessel.io/modules#module-audio)
+	- [Bluetooth Low Energy](https://tessel.io/modules#module-ble)
+	- [Camera](https://tessel.io/modules#module-camera)
+	- [Climate](https://tessel.io/modules#module-climate)
+	- [GPS](https://tessel.io/modules#module-gps)
+	- [Infrared](https://tessel.io/modules#module-infrared)
+	- [Relay](https://tessel.io/modules#module-relay)
+	- [Servo](https://tessel.io/modules#module-servo)
 
 ## GPIO & I2C Support
 
