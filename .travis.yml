@@ -7,9 +7,8 @@ install:
   - npm install
   - npm install -g tessel
   - npm link tessel
-
-before_script:
-  - 'if [[ "$TRAVIS_BRANCH" != "master" ]]; then npm install git://github.com/hybridgroup/cylon.git; fi'
+  - npm install -g istanbul codeclimate-test-reporter
 
 script:
-  - make
+  - make cover
+  - CODECLIMATE_REPO_TOKEN=51cae3eaf9b1790b956a71dcf02cc4e1f05425fbd4d2f09de6b521f01490d739 codeclimate < coverage/lcov.info
