@@ -6,7 +6,7 @@ Cylon.robot({
 
   work: function(my) {
     my.ir.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     my.ir.on('data', function(data) {

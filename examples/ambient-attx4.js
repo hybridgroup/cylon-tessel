@@ -5,7 +5,7 @@ Cylon.robot({
   device: { name: 'ambient', driver: 'ambient-attx4' },
   work: function(my) {
     my.ambient.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     my.ambient.on('light', function (data) {
