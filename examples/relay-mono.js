@@ -6,7 +6,7 @@ Cylon.robot({
 
   work: function(my) {
     my.relay.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     my.relay.on('latch', function(channel, value) {

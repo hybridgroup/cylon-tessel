@@ -6,7 +6,7 @@ Cylon.robot({
 
   work: function(my) {
     my.accel.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     my.accel.on('data', function (xyz) {

@@ -5,7 +5,7 @@ Cylon.robot({
   device: { name: 'climate', driver: 'climate-si7005' },
   work: function(my) {
     my.climate.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     every((1).seconds(), function() {

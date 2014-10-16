@@ -11,7 +11,7 @@ Cylon.robot({
     console.log('GPS module powered and ready. Waiting for satellites...');
 
     my.gps.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     // Emit coordinates when we get a coordinate fix
