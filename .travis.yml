@@ -7,6 +7,7 @@ install:
   - npm install
   - npm install -g tessel
   - npm link tessel
+  - npm install git://github.com/hybridgroup/cylon.git
   - npm install -g istanbul codeclimate-test-reporter
 
 script:
