@@ -4,7 +4,7 @@ Cylon.robot({
   connection: { name: 'tessel', adaptor: 'tessel' },
   devices: [
     { name: 'led', driver: 'led', pin: 1 },
-    { name: 'button', driver: 'button' }
+    { name: 'button', driver: 'button', pin: 'config' }
   ],
 
   work: function(my) {
