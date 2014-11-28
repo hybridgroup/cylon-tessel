@@ -6,7 +6,7 @@ Cylon.robot({
     { name: 'tessel_A', adaptor: 'tessel', port: 'A' },
   ],
   devices: [
-    { name: 'button', driver: 'button', connection: 'tessel' },
+    { name: 'button', driver: 'button', pin: 'config', connection: 'tessel' },
     { name: 'audio', driver: 'audio-vs1053b', connection: 'tessel_A' },
   ],
 

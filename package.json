@@ -5,16 +5,12 @@
   "description": "Cylon module for Tessel",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-tessel/issues",
-
   "author": "The Hybrid Group <cylonjs@hybridgroup.com>",
-
   "repository": {
     "type": "git",
     "url": "https://github.com/hybridgroup/cylon-tessel"
   },
-
   "license": "Apache 2.0",
-
   "hardware": {
     "*":              false,
     "./":             false,
@@ -30,35 +26,32 @@
     "ir-attx4":       true,
     "ble-ble113a":    true
   },
-
   "devDependencies": {
-    "sinon-chai": "~2.4.0",
-    "chai":       "~1.7.2",
-    "mocha":      "~1.12.1",
-    "sinon":      "~1.7.3",
-    "jshint":     "~2.4.4"
+    "sinon-chai":     "~2.4.0",
+    "chai":           "~1.7.2",
+    "mocha":          "~1.12.1",
+    "sinon":          "~1.7.3",
+    "jshint":         "~2.4.4"
   },
-
   "peerDependencies": {
-    "cylon":      ">= 0.21.0 < 1",
-    "cylon-gpio": ">= 0.21.0 < 1",
-    "cylon-i2c":  ">= 0.18.0 < 1"
+    "cylon":          ">= 0.21.0 < 1",
+    "cylon-gpio":     ">= 0.21.0 < 1",
+    "cylon-i2c":      ">= 0.18.0 < 1"
   },
-
   "dependencies": {
-    "cylon":          "~0.21.0",
-    "cylon-gpio":     "~0.21.0",
-    "cylon-i2c":      "~0.18.0",
-    "tessel":         "~0.3.9",
     "accel-mma84":    "~0.2.3",
-    "ambient-attx4":  "~0.1.4",
+    "ambient-attx4":  "~0.1.9",
+    "audio-vs1053b":  "~0.1.6",
+    "ble-ble113a":    "~0.1.6",
     "camera-vc0706":  "~0.1.6",
     "climate-si7005": "~0.1.3",
+    "cylon":          "~0.21.1",
+    "cylon-gpio":     "~0.21.0",
+    "cylon-i2c":      "~0.18.0",
     "gps-a2235h":     "~0.1.3",
-    "servo-pca9685":  "~0.1.2",
-    "audio-vs1053b":  "~0.1.6",
+    "ir-attx4":       "~0.1.3",
     "relay-mono":     "~0.1.2",
-    "ir-attx4":       "~0.1.2",
-    "ble-ble113a":    "~0.1.6"
+    "servo-pca9685":  "~0.1.2",
+    "tessel":         "~0.3.9"
   }
 }
