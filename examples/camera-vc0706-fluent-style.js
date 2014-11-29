@@ -7,7 +7,7 @@ cylon.robot({
   ],
   devices: [
     { name: 'led', driver: 'led', pin: 1, connection: 'tessel' },
-    { name: 'button', driver: 'button', connection: 'tessel' },
+    { name: 'button', driver: 'button', pin: 'config', connection: 'tessel' },
     { name: 'camera', driver: 'camera-vc0706', connection: 'tessel_A' },
   ]
 })
