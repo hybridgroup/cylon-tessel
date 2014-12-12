@@ -1,20 +1,17 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'accel', driver: 'accel-mma84' }
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel', port: 'A' })
+  .device('accel', { driver: 'accel-mma84' })
+  .on('ready', function(bot) {
+    bot.accel.on('error', console.log);
 
-.on('ready', function(robot) {
-  robot.accel.on('error', function (err) {
-    console.log(err);
+    bot.accel.on('data', function (xyz) {
+      console.log('x:', xyz[0].toFixed(2),
+                  'y:', xyz[1].toFixed(2),
+                  'z:', xyz[2].toFixed(2));
+    });
   });
 
-  robot.accel.on('data', function (xyz) {
-    console.log('x:', xyz[0].toFixed(2),
-                'y:', xyz[1].toFixed(2),
-                'z:', xyz[2].toFixed(2));
-  });
-})
-
-.start();
+Cylon.start();

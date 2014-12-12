@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'GPIO' },
-  device: { name: 'sensor', driver: 'analogSensor', pin: "A6" },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'GPIO' }
+  },
+
+  devices: {
+    sensor: { driver: 'analogSensor', pin: "A6" }
+  },
 
   work: function(my) {
     every((0.05).seconds(), function() {

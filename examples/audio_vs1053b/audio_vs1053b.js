@@ -1,21 +1,22 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connections: [
-    { name: 'tessel', adaptor: 'tessel' },
-    { name: 'tessel_A', adaptor: 'tessel', port: 'A' },
-  ],
-  devices: [
-    { name: 'button', driver: 'button', pin: 'config', connection: 'tessel' },
-    { name: 'audio', driver: 'audio-vs1053b', connection: 'tessel_A' },
-  ],
+  connections: {
+    tessel: { adaptor: 'tessel' },
+    tessel_A: { adaptor: 'tessel', port: 'A' },
+  },
+
+  devices: {
+    button: { driver: 'button', pin: 'config', connection: 'tessel' },
+    audio: { driver: 'audio-vs1053b', connection: 'tessel_A' },
+  },
 
   work: function(my) {
     var chunks = [];
     var recording = false;
 
     my.audio.on('error', function (err) {
-      console.log(err)
+      console.log(err);
     });
 
     // When we get data, push it into our array

@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'ble', driver: 'ble-ble113a' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    ble: { driver: 'ble-ble113a' }
+  },
 
   work: function(my) {
     my.ble.on('error', function (err) {

@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'ir', driver: 'ir-attx4' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    ir: { driver: 'ir-attx4' }
+  },
 
   work: function(my) {
     my.ir.on('error', function (err) {

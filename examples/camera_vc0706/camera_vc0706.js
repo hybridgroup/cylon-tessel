@@ -1,15 +1,16 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connections: [
-    { name: 'tessel', adaptor: 'tessel' },
-    { name: 'tessel_A', adaptor: 'tessel', port: 'A' },
-  ],
-  devices: [
-    { name: 'led', driver: 'led', pin: 1, connection: 'tessel' },
-    { name: 'button', driver: 'button', pin: 'config', connection: 'tessel' },
-    { name: 'camera', driver: 'camera-vc0706', connection: 'tessel_A' },
-  ],
+  connections: {
+    tessel: { adaptor: 'tessel' },
+    tessel_A: { adaptor: 'tessel', port: 'A' },
+  },
+
+  devices: {
+    led: { driver: 'led', pin: 1, connection: 'tessel' },
+    button: { driver: 'button', pin: 'config', connection: 'tessel' },
+    camera: { driver: 'camera-vc0706', connection: 'tessel_A' },
+  },
 
   work: function(my) {
     my.camera.on('error', function (err) {

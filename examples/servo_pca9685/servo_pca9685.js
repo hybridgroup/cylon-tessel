@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'servo', driver: 'servo-pca9685' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    servo: { driver: 'servo-pca9685' }
+  },
 
   work: function(my) {
     var servo1 = 1; // We have a servo plugged in at position 1

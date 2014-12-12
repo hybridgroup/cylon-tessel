@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'blinkm', driver: 'blinkm' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    blinkm: { driver: 'blinkm' }
+  },
 
   work: function(my) {
     my.blinkm.stopScript();

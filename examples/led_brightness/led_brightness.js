@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'GPIO' },
-  device: { name: 'led', driver: 'led', pin: "G4" },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'GPIO' }
+  },
+
+  devices: {
+    led: { driver: 'led', pin: "G4" }
+  },
 
   work: function(my) {
     var brightness = 0,

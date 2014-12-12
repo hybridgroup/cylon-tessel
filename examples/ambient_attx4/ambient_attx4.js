@@ -1,8 +1,14 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'ambient', driver: 'ambient-attx4' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    ambient: { driver: 'ambient-attx4' }
+  },
+
   work: function(my) {
     my.ambient.on('error', function (err) {
       console.log(err);

@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'relay', driver: 'relay-mono' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    relay: { driver: 'relay-mono' }
+  },
 
   work: function(my) {
     my.relay.on('error', function (err) {

@@ -1,8 +1,14 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'climate', driver: 'climate-si7005' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    climate: { driver: 'climate-si7005' }
+  },
+
   work: function(my) {
     my.climate.on('error', function (err) {
       console.log(err);

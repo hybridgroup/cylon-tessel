@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'gps', driver: 'gps-a2235h' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    gps: { driver: 'gps-a2235h' }
+  },
 
   work: function(my) {
     var satsInRange = 0;

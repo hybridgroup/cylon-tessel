@@ -1,23 +1,24 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'climate', driver: 'climate-si7005' }
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel', port: 'A' })
+  .device('climate', { driver: 'climate-si7005' })
 
-.on('ready', function(robot) {
-  robot.climate.on('error', function (err) {
-    console.log(err);
+  .on('ready', function(bot) {
+    bot.climate.on('error', function (err) {
+      console.log(err);
+    });
+
+    setInterval(function() {
+      bot.climate.readHumidity(function (err, humid) {
+        console.log('Humidity:', humid.toFixed(4) + '%RH');
+      });
+
+      bot.climate.readTemperature('f', function (err, temp) {
+        console.log('Degrees:', temp.toFixed(4) + 'F');
+      });
+    }, 1000);
   });
 
-  setInterval(function() {
-    robot.climate.readHumidity(function (err, humid) {
-      console.log('Humidity:', humid.toFixed(4) + '%RH');
-    });
-    robot.climate.readTemperature('f', function (err, temp) {
-      console.log('Degrees:', temp.toFixed(4) + 'F');
-    });
-  }, 1000);
-})
-
-.start();
+Cylon.start();

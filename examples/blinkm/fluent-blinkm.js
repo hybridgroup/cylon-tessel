@@ -1,28 +1,28 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'blinkm', driver: 'blinkm' }
-})
+Cylon
+  .robot()
+  .connection({ name: 'tessel', adaptor: 'tessel', port: 'A' })
+  .device({ name: 'blinkm', driver: 'blinkm' })
+  .on('ready', function(bot) {
+    bot.blinkm.stopScript();
 
-.on('ready', function(robot) {
-  robot.blinkm.stopScript();
-
-  robot.blinkm.getFirmware(function(err, version) {
-    console.log("Started BlinkM version " + version);
-  });
-
-  robot.blinkm.goToRGB(0,0,0);
-  robot.blinkm.getRGBColor(function(err, data) {
-    console.log("Starting Color: ", data);
-  });
-
-  setTimeout(function() {
-    robot.blinkm.getRGBColor(function(err, data) {
-      console.log("Current Color: ", data);
+    bot.blinkm.getFirmware(function(err, version) {
+      console.log("Started BlinkM version " + version);
     });
-    robot.blinkm.fadeToRandomRGB(128, 128, 128);
-  }, 2000);
-})
 
-.start();
+    bot.blinkm.goToRGB(0,0,0);
+    bot.blinkm.getRGBColor(function(err, data) {
+      console.log("Starting Color: ", data);
+    });
+
+    setTimeout(function() {
+      bot.blinkm.getRGBColor(function(err, data) {
+        console.log("Current Color: ", data);
+      });
+
+      bot.blinkm.fadeToRandomRGB(128, 128, 128);
+    }, 2000);
+  });
+
+Cylon.start();

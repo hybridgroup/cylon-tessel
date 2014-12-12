@@ -1,43 +1,40 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connections: [
-    { name: 'tessel', adaptor: 'tessel' },
-    { name: 'tessel_A', adaptor: 'tessel', port: 'A' },
-  ],
-  devices: [
-    { name: 'led', driver: 'led', pin: 1, connection: 'tessel' },
-    { name: 'button', driver: 'button', pin: 'config', connection: 'tessel' },
-    { name: 'camera', driver: 'camera-vc0706', connection: 'tessel_A' },
-  ]
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel' })
+  .connection('tessel_A', { adaptor: 'tessel', port: 'A' })
 
-.on('ready', function(robot) {
-  robot.camera.on('error', function (err) {
-    console.log("Camera error: ", err);
-  });
+  .device('led', { driver: 'led', pin: 1, connection: 'tessel' })
+  .device('button', { driver: 'button', pin: 'config', connection: 'tessel' })
+  .device('camera', { driver: 'camera-vc0706', connection: 'tessel_A' })
 
-  robot.camera.setCompression(0.4, function(err) {
-    if (err) {
-      console.log("error setting compression: ", err);
-    }
-  });
+  .on('ready', function(bot) {
+    bot.camera.on('error', function (err) {
+      console.log("Camera error: ", err);
+    });
 
-  robot.button.on('push', function() {
-    robot.led.turnOn();
-    robot.camera.takePicture(function(err, image) {
+    bot.camera.setCompression(0.4, function(err) {
       if (err) {
-        console.log('error taking image', err);
-      } else {
-        // Name the image
-        var name = 'picture-' + Math.floor(Date.now()*1000) + '.jpg';
-        // Save the image
-        console.log('Picture saving as', name, '...');
-        process.sendfile(name, image);
+        console.log("error setting compression: ", err);
       }
-      robot.led.turnOff();
+    });
+
+    bot.button.on('push', function() {
+      bot.led.turnOn();
+      bot.camera.takePicture(function(err, image) {
+        if (err) {
+          console.log('error taking image', err);
+        } else {
+          // Name the image
+          var name = 'picture-' + Math.floor(Date.now()*1000) + '.jpg';
+          // Save the image
+          console.log('Picture saving as', name, '...');
+          process.sendfile(name, image);
+        }
+        bot.led.turnOff();
+      });
     });
   });
-})
 
-.start();
+Cylon.start();

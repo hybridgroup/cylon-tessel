@@ -1,19 +1,16 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'GPIO' },
-  devices: [
-    { name: 'led', driver: 'led', pin: "G4" },
-    { name: 'sensor', driver: 'analogSensor', pin: "A6" }
-  ]
-})
-
-.on('ready', function(robot) {
-  setInterval(function() {
-    var val = robot.sensor.analogRead().fromScale(0, 1024).toScale(0, 255) | 0;
-    console.log("brightness: ", val);
-    robot.led.brightness(val);
-  }, 50);
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel', port: 'GPIO' })
+  .device('led', { driver: 'led', pin: "G4" })
+  .device('sensor', { driver: 'analogSensor', pin: "A6" })
+  .on('ready', function(bot) {
+    setInterval(function() {
+      var val = bot.sensor.analogRead().fromScale(0, 1024).toScale(0, 255) | 0;
+      console.log("brightness: ", val);
+      bot.led.brightness(val);
+    }, 50);
+  })
 
 .start();

@@ -1,13 +1,13 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'GPIO' },
-  device: { name: 'sensor', driver: 'analogSensor', pin: "A6" }
-})
-.on('ready', function(robot) {
-  setInterval(function() {
-    console.log("value: ", robot.sensor.analogRead());
-  }, 50);
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel', port: 'GPIO' })
+  .device('sensor', { driver: 'analogSensor', pin: "A6" })
+  .on('ready', function(bot) {
+    setInterval(function() {
+      console.log("value: ", bot.sensor.analogRead());
+    }, 50);
+  });
 
-.start();
+Cylon.start();

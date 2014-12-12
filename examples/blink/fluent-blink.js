@@ -1,14 +1,13 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel' },
-  device: { name: 'led', driver: 'led', pin: 1 }
-})
+Cylon
+  .robot()
+  .connection('tessel', { adaptor: 'tessel' })
+  .device('led', { driver: 'led', pin: 1 })
+  .on('ready', function(my) {
+    setInterval(function() {
+      my.led.toggle();
+    }, 1000);
+  });
 
-.on('ready', function(my) {
-  setInterval(function() {
-    my.led.toggle();
-  }, 1000);
-})
-
-.start();
+Cylon.start();
