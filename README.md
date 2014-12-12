@@ -39,8 +39,13 @@ If the blue light starts to blink, then you're all set!
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel' },
-  device: { name: 'led', driver: 'led', pin: 1 },
+  connections: {
+    tessel: { adaptor: 'tessel' }
+  },
+
+  devices: {
+    led: { driver: 'led', pin: 1 }
+  },
 
   work: function(my) {
     every((1).seconds(), function() { my.led.toggle() });
@@ -54,8 +59,14 @@ Cylon.robot({
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'tessel', adaptor: 'tessel', port: 'A' },
-  device: { name: 'climate', driver: 'climate-si7005' },
+  connections: {
+    tessel: { adaptor: 'tessel', port: 'A' }
+  },
+
+  devices: {
+    climate: { driver: 'climate-si7005' }
+  },
+
   work: function(my) {
     my.climate.on('error', function (err) {
       console.log(err)
