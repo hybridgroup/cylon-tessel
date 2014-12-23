@@ -15,25 +15,25 @@ sister project Gobot (http://gobot.io).
 For more information about Cylon, check out our repo at
 https://github.com/hybridgroup/cylon
 
-## Getting Started
+## How to Install
 
 Follow the installation instructions detailed [here](https://tessel.io/install/)
 
 You may now use the Cylon command line interface to generate a new Tessel project.
 
-```
-$ sudo npm install -g cylon-cli
-$ cylon generate tessel my-tessel-project
-$ cd my-tessel-project
-$ npm install
-$ tessel run blink.js
-```
+    $ sudo npm install -g cylon-cli
+    $ cylon generate tessel my-tessel-project
+    $ cd my-tessel-project
+    $ npm install
+    $ tessel run blink.js
 
 If the blue light starts to blink, then you're all set!
 
-## Examples
+## How to Use
 
 ### LED
+
+This small program lets you toggle an LED on and off.
 
 ```javascript
 var Cylon = require('cylon');
@@ -54,6 +54,8 @@ Cylon.robot({
 ```
 
 ### Climate
+
+This small program shows how to use the Tessel Climate module.
 
 ```javascript
 var Cylon = require('cylon');
@@ -83,6 +85,13 @@ Cylon.robot({
   }
 }).start();
 ```
+
+## How to Connect
+
+As mentioned in the How To Install section, connecting to the Tessel is easy.
+You just need to follow the provided instructions on the [Tessel site](http://start.tessel.io/install).
+
+If you've already done this, your Tessel should already be connected and ready to run Cylon.JS code.
 
 ## Tessel Module Support
 
@@ -120,6 +129,7 @@ In addition to the custom Tessel modules, you can also use the standard Cylon.js
     - MPU6050
 
 ## Documentation
+
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
 Thank you!
