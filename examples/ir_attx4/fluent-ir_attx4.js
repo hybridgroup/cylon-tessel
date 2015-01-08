@@ -1,16 +1,19 @@
-var Cylon = require('cylon');
+// jshint maxlen:false
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection('tessel', { adaptor: 'tessel', port: 'A' })
-  .device('ir', { driver: 'ir-attx4' })
+  .connection("tessel", { adaptor: "tessel", port: "A" })
+  .device("ir", { driver: "ir-attx4" })
 
-  .on('ready', function(bot) {
-    bot.ir.on('error', function (err) {
+  .on("ready", function(bot) {
+    bot.ir.on("error", function (err) {
       console.log(err);
     });
 
-    bot.ir.on('data', function(data) {
+    bot.ir.on("data", function(data) {
       console.log("Received RX Data: ", data);
     });
 
@@ -32,8 +35,8 @@ Cylon
         }
 
         console.log("Signal sent!");
-        });
-      }, 3000);
+      });
+    }, 3000);
   });
 
 Cylon.start();

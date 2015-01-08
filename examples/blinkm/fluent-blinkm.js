@@ -1,10 +1,12 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection({ name: 'tessel', adaptor: 'tessel', port: 'A' })
-  .device({ name: 'blinkm', driver: 'blinkm' })
-  .on('ready', function(bot) {
+  .connection({ name: "tessel", adaptor: "tessel", port: "A" })
+  .device({ name: "blinkm", driver: "blinkm" })
+  .on("ready", function(bot) {
     bot.blinkm.stopScript();
 
     bot.blinkm.getFirmware(function(err, version) {

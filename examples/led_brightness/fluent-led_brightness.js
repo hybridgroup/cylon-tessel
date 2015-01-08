@@ -1,10 +1,12 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection('tessel', { adaptor: 'tessel', port: 'GPIO' })
-  .device('led', { driver: 'led', pin: "G4" })
-  .on('ready', function(bot) {
+  .connection("tessel", { adaptor: "tessel", port: "GPIO" })
+  .device("led", { driver: "led", pin: "G4" })
+  .on("ready", function(bot) {
     var brightness = 0,
         fade = 5;
 

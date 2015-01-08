@@ -1,12 +1,14 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    tessel: { adaptor: 'tessel', port: 'GPIO' }
+    tessel: { adaptor: "tessel", port: "GPIO" }
   },
 
   devices: {
-    sensor: { driver: 'analogSensor', pin: "A6" }
+    sensor: { driver: "analogSensor", pin: "A6" }
   },
 
   work: function(my) {

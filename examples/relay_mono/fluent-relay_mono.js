@@ -1,16 +1,18 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection('tessel', { adaptor: 'tessel', port: 'A' })
-  .device('relay', { driver: 'relay-mono' })
-  .on('ready', function(bot) {
-    bot.relay.on('error', function (err) {
+  .connection("tessel", { adaptor: "tessel", port: "A" })
+  .device("relay", { driver: "relay-mono" })
+  .on("ready", function(bot) {
+    bot.relay.on("error", function (err) {
       console.log(err);
     });
 
-    bot.relay.on('latch', function(channel, value) {
-      console.log('latch on relay channel ' + channel + ' switched to', value);
+    bot.relay.on("latch", function(channel, value) {
+      console.log("latch on relay channel " + channel + " switched to", value);
     });
 
     setInterval(function() {

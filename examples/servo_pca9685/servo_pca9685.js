@@ -1,20 +1,22 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    tessel: { adaptor: 'tessel', port: 'A' }
+    tessel: { adaptor: "tessel", port: "A" }
   },
 
   devices: {
-    servo: { driver: 'servo-pca9685' }
+    servo: { driver: "servo-pca9685" }
   },
 
   work: function(my) {
     var servo1 = 1; // We have a servo plugged in at position 1
-    var position = 0;  //  Target position of the servo between 0 (min) and 1 (max).
+    var position = 0;  // Target position of the servo between 0 and 1.
 
-    my.servo.on('error', function (err) {
-      console.log(err)
+    my.servo.on("error", function (err) {
+      console.log(err);
     });
 
     //  Set the minimum and maximum duty cycle for servo 1.
@@ -24,7 +26,7 @@ Cylon.robot({
     //  Moving them apart = more range, more likely to stall and burn out
     my.servo.configure(servo1, 0.05, 0.12, function () {
       every((0.5).seconds(), function() {
-        console.log('Position (in range 0-1):', position);
+        console.log("Position (in range 0-1):", position);
         //  Set servo #1 to position pos.
         my.servo.move(servo1, position);
 

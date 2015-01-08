@@ -1,20 +1,23 @@
-var Cylon = require('cylon');
+// jshint maxlen:false
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    tessel: { adaptor: 'tessel', port: 'A' }
+    tessel: { adaptor: "tessel", port: "A" }
   },
 
   devices: {
-    ir: { driver: 'ir-attx4' }
+    ir: { driver: "ir-attx4" }
   },
 
   work: function(my) {
-    my.ir.on('error', function (err) {
+    my.ir.on("error", function (err) {
       console.log(err);
     });
 
-    my.ir.on('data', function(data) {
+    my.ir.on("data", function(data) {
       console.log("Received RX Data: ", data);
     });
 
@@ -28,6 +31,7 @@ Cylon.robot({
       *********************************************/
       // Make a buffer of on/off durations (each duration is 16 bits)
       var powerBuffer = new Buffer([0, 178, 255, 168, 0, 12, 255, 246, 0, 13, 255, 225, 0, 13, 255, 224, 0, 12, 255, 246, 0, 12, 255, 246, 0, 13, 255, 247, 0, 13, 255, 247, 0, 13, 255, 224, 0, 12, 255, 224, 0, 13, 255, 247, 0, 13, 255, 224, 0, 12, 255, 246, 0, 12, 255, 246, 0, 12, 255, 246, 0, 12, 255, 246, 0, 13, 255, 247, 0, 13, 255, 224, 0, 12, 255, 224, 0, 13, 255, 225, 0, 13, 255, 224, 0, 12, 255, 246, 0, 12, 255, 246, 0, 13, 255, 247, 0, 13, 255, 247, 0, 13, 255, 246, 0, 12, 255, 246, 0, 12, 255, 246, 0, 12, 255, 246, 0, 12, 255, 224, 0, 13, 255, 224, 0, 12, 255, 224, 0, 12, 255, 224, 0, 12]);
+
       // Send the signal at 38 kHz
       my.ir.sendRawSignal(38, powerBuffer, function(err) {
         if (err) {
