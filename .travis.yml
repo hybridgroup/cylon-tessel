@@ -8,8 +8,8 @@ install:
   - npm install -g tessel
   - npm link tessel
   - npm install git://github.com/hybridgroup/cylon.git
-  - npm install -g istanbul codeclimate-test-reporter
+  - npm install -g jshint istanbul codeclimate-test-reporter
 
 script:
-  - make cover
+  - make ci
   - CODECLIMATE_REPO_TOKEN=51cae3eaf9b1790b956a71dcf02cc4e1f05425fbd4d2f09de6b521f01490d739 codeclimate < coverage/lcov.info
