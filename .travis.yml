@@ -2,6 +2,7 @@ language: objective-c
 
 before_install:
   - brew install libusb node
+  - "mkdir ~/.npm"
 
 install:
   - npm install
