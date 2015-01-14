@@ -149,6 +149,9 @@ Thank you!
   * For git help see [progit](http://git-scm.com/book) which is an awesome (and free) book on git
 
 ## Release History
+
+Version 0.10.0 - Compatibility with Cylon 0.22.0
+
 Version 0.9.0 - Resolve issues with Tessel hardware modules
 
 Version 0.8.0 - Compatibility with Cylon 0.21.0
