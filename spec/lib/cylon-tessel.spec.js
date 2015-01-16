@@ -2,6 +2,19 @@
 
 var tessel = source("cylon-tessel");
 
+var drivers = [
+  "accel-mma84",
+  "ambient-attx4",
+  "camera-vc0706",
+  "climate-si7005",
+  "gps-a2235h",
+  "servo-pca9685",
+  "audio-vs1053b",
+  "relay-mono",
+  "ir-attx4",
+  "ble-ble113a"
+];
+
 describe("Cylon.Tessel", function() {
   describe("#adaptors", function() {
     it("is an array of supplied adaptors", function() {
@@ -11,19 +24,6 @@ describe("Cylon.Tessel", function() {
 
   describe("#drivers", function() {
     it("is an array of supplied drivers", function() {
-      var drivers = [
-        "accel-mma84",
-        "ambient-attx4",
-        "camera-vc0706",
-        "climate-si7005",
-        "gps-a2235h",
-        "servo-pca9685",
-        "audio-vs1053b",
-        "relay-mono",
-        "ir-attx4",
-        "ble-ble113a"
-      ];
-
       expect(tessel.drivers).to.be.eql(drivers);
     });
   });
@@ -34,7 +34,16 @@ describe("Cylon.Tessel", function() {
     });
   });
 
-  it("should be able to create adaptor", function() {
+  it("should be able to create adaptor instances", function() {
     expect(tessel.adaptor()).to.be.a("object");
+  });
+
+  describe("#driver", function() {
+    drivers.forEach(function(driver) {
+      it("should be able to create an instance of " + driver, function() {
+        var opts = { connection: { port: "3000" }, driver: driver };
+        tessel.driver(opts);
+      });
+    });
   });
 });
