@@ -7,6 +7,7 @@ var drivers = [
   "ambient-attx4",
   "camera-vc0706",
   "climate-si7005",
+  "climate-si7020",
   "gps-a2235h",
   "servo-pca9685",
   "audio-vs1053b",
