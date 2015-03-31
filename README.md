@@ -150,6 +150,8 @@ Thank you!
 
 ## Release History
 
+Version 0.11.0 - Adds climate-si7020 module support
+
 Version 0.10.0 - Compatibility with Cylon 0.22.0
 
 Version 0.9.0 - Resolve issues with Tessel hardware modules
@@ -176,4 +178,4 @@ Version 0.0.1 - Initial release
 
 ## License
 
-Copyright (c) 2013-2014 The Hybrid Group. Licensed under the Apache 2.0 license.
+Copyright (c) 2013-2015 The Hybrid Group. Licensed under the Apache 2.0 license.
