@@ -19,10 +19,11 @@ https://github.com/hybridgroup/cylon
 
 Follow the installation instructions detailed [here](https://tessel.io/install/)
 
-You may now use the Cylon command line interface to generate a new Tessel project.
+We've provided a repo containing an [example cylon-tessel project][example].
 
-    $ sudo npm install -g cylon-cli
-    $ cylon generate tessel my-tessel-project
+[example]: https://github.com/hybridgroup/cylon-example-tessel
+
+    $ git clone https://github.com/hybridgroup/cylon-example-tessel.git my-tessel-project
     $ cd my-tessel-project
     $ npm install
     $ tessel run blink.js
