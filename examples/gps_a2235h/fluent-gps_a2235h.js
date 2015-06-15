@@ -12,17 +12,17 @@ Cylon
 
     console.log("GPS module powered and ready. Waiting for satellites...");
 
-    bot.gps.on("error", function (err) {
+    bot.gps.on("error", function(err) {
       console.log(err);
     });
 
     // Emit coordinates when we get a coordinate fix
-    bot.gps.on("coordinates", function (c) {
+    bot.gps.on("coordinates", function(c) {
       console.log("Lat:", c.lat, "\tLon:", c.lon, "\tTimestamp:", c.timestamp);
     });
 
     // Emit altitude when we get an altitude fix
-    bot.gps.on("altitude", function (alt) {
+    bot.gps.on("altitude", function(alt) {
       var a = alt.alt,
           t = alt.timestamp;
 
@@ -30,13 +30,13 @@ Cylon
     });
 
     // Emitted whenever satellites are in view
-    bot.gps.on("satellite-list-partial", function (data) {
+    bot.gps.on("satellite-list-partial", function(data) {
       satsInRange = data.satsInView;
       console.log(satsInRange, "satellites in range,", satsFixed, "fixed.");
     });
 
     // Emitted when we have information about a fix on satellites
-    bot.gps.on("fix", function (data) {
+    bot.gps.on("fix", function(data) {
       satsFixed = data.numSat;
       console.log(satsInRange, "satellites in range,", satsFixed, "fixed.");
     });

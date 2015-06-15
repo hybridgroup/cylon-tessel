@@ -12,7 +12,7 @@ Cylon
   .device("camera", { driver: "camera-vc0706", connection: "tessel_A" })
 
   .on("ready", function(bot) {
-    bot.camera.on("error", function (err) {
+    bot.camera.on("error", function(err) {
       console.log("Camera error: ", err);
     });
 
@@ -29,7 +29,7 @@ Cylon
           console.log("error taking image", err);
         } else {
           // Name the image
-          var name = "picture-" + Math.floor(Date.now()*1000) + ".jpg";
+          var name = "picture-" + Math.floor(Date.now() * 1000) + ".jpg";
           // Save the image
           console.log("Picture saving as", name, "...");
           process.sendfile(name, image);

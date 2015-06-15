@@ -1,4 +1,3 @@
-// jshint maxlen:false
 "use strict";
 
 var Cylon = require("cylon");
@@ -13,7 +12,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.ir.on("error", function (err) {
+    my.ir.on("error", function(err) {
       console.log(err);
     });
 

@@ -12,7 +12,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.relay.on("error", function (err) {
+    my.relay.on("error", function(err) {
       console.log(err);
     });
 

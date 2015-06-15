@@ -17,7 +17,7 @@ Cylon.robot({
     var chunks = [];
     var recording = false;
 
-    my.audio.on("error", function (err) {
+    my.audio.on("error", function(err) {
       console.log(err);
     });
 
@@ -52,9 +52,9 @@ Cylon.robot({
         }
         console.log("Playing it back...");
         // Concat the data and play it
-        my.audio.play(Buffer.concat(chunks), function(err) {
-          if (err) {
-            console.log("Error during playback: ", err);
+        my.audio.play(Buffer.concat(chunks), function(error) {
+          if (error) {
+            console.log("Error during playback: ", error);
           }
           // When we're done playing, clear recordings
           chunks = [];

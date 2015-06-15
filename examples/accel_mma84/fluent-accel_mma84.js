@@ -9,7 +9,7 @@ Cylon
   .on("ready", function(bot) {
     bot.accel.on("error", console.log);
 
-    bot.accel.on("data", function (xyz) {
+    bot.accel.on("data", function(xyz) {
       console.log("x:", xyz[0].toFixed(2),
                   "y:", xyz[1].toFixed(2),
                   "z:", xyz[2].toFixed(2));

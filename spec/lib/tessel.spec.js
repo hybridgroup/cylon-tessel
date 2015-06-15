@@ -1,6 +1,6 @@
 "use strict";
 
-var Tessel = source("tessel");
+var Tessel = lib("tessel");
 
 describe("Cylon.Adaptors.Tessel", function() {
   var adaptor = new Tessel();

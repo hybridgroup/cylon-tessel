@@ -1,4 +1,3 @@
-// jshint maxlen:false
 "use strict";
 
 var Cylon = require("cylon");
@@ -9,7 +8,7 @@ Cylon
   .device("ir", { driver: "ir-attx4" })
 
   .on("ready", function(bot) {
-    bot.ir.on("error", function (err) {
+    bot.ir.on("error", function(err) {
       console.log(err);
     });
 

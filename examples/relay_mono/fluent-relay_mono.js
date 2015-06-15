@@ -7,7 +7,7 @@ Cylon
   .connection("tessel", { adaptor: "tessel", port: "A" })
   .device("relay", { driver: "relay-mono" })
   .on("ready", function(bot) {
-    bot.relay.on("error", function (err) {
+    bot.relay.on("error", function(err) {
       console.log(err);
     });
 

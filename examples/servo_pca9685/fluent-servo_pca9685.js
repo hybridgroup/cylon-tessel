@@ -10,7 +10,7 @@ Cylon
     var servo1 = 1; // We have a servo plugged in at position 1
     var position = 0;  // Target position of the servo between 0 and 1.
 
-    bot.servo.on("error", function (err) {
+    bot.servo.on("error", function(err) {
       console.log(err);
     });
 
@@ -19,7 +19,7 @@ Cylon
     //  and gets hot, try tuning these values (0.05 and 0.12).
     //  Moving them towards each other = less movement range
     //  Moving them apart = more range, more likely to stall and burn out
-    bot.servo.configure(servo1, 0.05, 0.12, function () {
+    bot.servo.configure(servo1, 0.05, 0.12, function() {
       setInterval(function() {
         console.log("Position (in range 0-1):", position);
         //  Set servo #1 to position pos.

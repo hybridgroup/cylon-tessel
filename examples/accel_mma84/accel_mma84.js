@@ -12,11 +12,11 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.accel.on("error", function (err) {
+    my.accel.on("error", function(err) {
       console.log(err);
     });
 
-    my.accel.on("data", function (xyz) {
+    my.accel.on("data", function(xyz) {
       console.log("x:", xyz[0].toFixed(2),
                   "y:", xyz[1].toFixed(2),
                   "z:", xyz[2].toFixed(2));

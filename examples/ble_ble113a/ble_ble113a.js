@@ -12,7 +12,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.ble.on("error", function (err) {
+    my.ble.on("error", function(err) {
       console.log(err);
     });
 

@@ -15,7 +15,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    my.camera.on("error", function (err) {
+    my.camera.on("error", function(err) {
       console.log("Camera error: ", err);
     });
 
@@ -32,7 +32,7 @@ Cylon.robot({
           console.log("error taking image", err);
         } else {
           // Name the image
-          var name = "picture-" + Math.floor(Date.now()*1000) + ".jpg";
+          var name = "picture-" + Math.floor(Date.now() * 1000) + ".jpg";
           // Save the image
           console.log("Picture saving as", name, "...");
           process.sendfile(name, image);

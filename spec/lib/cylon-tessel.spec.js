@@ -1,6 +1,6 @@
 "use strict";
 
-var tessel = source("cylon-tessel");
+var tessel = lib("cylon-tessel");
 
 var drivers = [
   "accel-mma84",
