@@ -1,7 +1,6 @@
 {
   "name": "cylon-tessel",
   "version": "0.12.0",
-  "main": "lib/cylon-tessel.js",
   "description": "Cylon module for Tessel",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-tessel/issues",
@@ -24,6 +23,7 @@
   "hardware": {
     "*": false,
     "./": false,
+    "./index.js": true,
     "./lib": true,
     "accel-mma84": true,
     "ambient-attx4": true,
