@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.14.0 - Use Cylon 1.2.0
+
 Version 0.13.0 - Use Cylon 1.1.0
 
 Version 0.12.0 - Compatibility with Cylon 1.0.0
@@ -20,7 +22,7 @@ Version 0.5.0 - Compatibility with Cylon 0.18.0
 
 Version 0.4.0 - Compatibility with Cylon 0.16.0
 
-Version 0.3.0 - Add support for official Tessel Modules, Analog Read and PWM Write 
+Version 0.3.0 - Add support for official Tessel Modules, Analog Read and PWM Write
 
 Version 0.2.1 - Add peerDependencies to package.json
 
